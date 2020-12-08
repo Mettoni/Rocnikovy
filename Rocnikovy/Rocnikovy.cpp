@@ -17,6 +17,7 @@ int main()
 	cin >> a;	
 	cout << endl;
 	if (a==1)
+		vajco
 		
 	
 
