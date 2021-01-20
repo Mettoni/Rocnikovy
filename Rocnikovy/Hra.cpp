@@ -24,14 +24,14 @@ void hra() {
 
 	string randomword = words[rand() % 10];  //nov· premenna typu string ktorej hodnota sa nastavÌ po zapnutÌ programu a jej hodnota bude random slovo z pola words
 
-	string underscore(randomword.length(), '_');  //nova premenn˝ typu strng ktorej hodnota je podËiarka a velkost alebo poËet podËiarok z·visi podla dlzky premmenej randomword
+	string underscore(randomword.length(), '_');  //nova premenn˝ typu string ktorej hodnota je podËiarka a velkost alebo poËet podËiarok z·visi podla dlzky premmenej randomword
 
 	DrawHangman(1); //zapne funkciu obesenca a stav nastavi na 1
 
 	while (live > 0) // hra bude beûaù dokym je ûivot viac ako 0
 	{
 		cout << endl;
-		cout << "tvoj zivot: " << live << endl;;
+		cout << "Tvoje zivoty: " << live << endl;;
 		cout << "    " << underscore << endl;
 		cout << endl;
 		cout << "Pismeno/Pismena: ";
@@ -63,18 +63,25 @@ void hra() {
 			cout << "Zle pismeno" << endl;
 		}
 
-		if (underscore == randomword) // ak sa slovo zhoduje so vöetkymi pismenami v underscore premenne tak program skoncÌ a zaËni od znova len treba poËkaù 5 sekund a hra sa od znova 
+		if (underscore == randomword) // ak sa slovo zhoduje so vöetkymi pismenami v underscore premenne tak program skoncÌ a zaËni od znova len treba poËkaù 3 sekundy a hra sa od znova 
 		{
 			cout << "Gratulujeme Vyhral si" << endl;
-			this_thread::sleep_for(std::chrono::seconds(5));
+			this_thread::sleep_for(std::chrono::seconds(3));
+			live = 0;
 			system("cls");
 			main();
 
 		}
 
 	}
-
-	cout << "Skoda, slovo bolo: " << randomword << endl;
+		if (live == 0) {
+		
+		cout << "Skoda, slovo bolo: " << randomword << endl;
+		this_thread::sleep_for(std::chrono::seconds(3));
+		system("cls");
+		main();
+		}
+	
 
 
 
